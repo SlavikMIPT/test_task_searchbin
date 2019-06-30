@@ -49,12 +49,13 @@ func TestBinarySearch(t *testing.T) {
 	for n := 0; n < testSetSize; n++ {
 		testSet[n] = makeRange(0, n)
 	}
-
+	t.Logf("Testing search each item:")
+	t.Logf("Array, value")
 	for i := 0; i < len(testSet); i++ {
 		for shift := 0; shift < len(testSet[i]); shift++ {
 			tempArray := getShiftedRange(testSet[i], shift)
-			t.Logf("Testing search each item: %v", tempArray)
 			for offset := 0; offset < len(testSet[i]); offset++ {
+				t.Logf("%v, %v",tempArray,tempArray[offset])
 				res := binSearch(tempArray, tempArray[offset])
 				if res != offset {
 					t.Errorf("Expected: %v  got: %v", offset, res)

@@ -9,24 +9,24 @@ func binSearch(arr []int, item int) int {
 		if arr[m] == item{
 			return m
 		}
-		if item > arr[len(arr)-1] { //искомый элемент  в завернутом хвосте упорядоченного массива
-			if arr[m] > arr[len(arr)-1] { //если точка тоже в хвосте - проверяем левее она или правее
+		if item > arr[len(arr)-1] { //required element in a wrapped tail of an ordered array
+			if arr[m] > arr[len(arr)-1] { //if the point is also in the tail - we check it to the left or to the right
 				if arr[m] > item {
 					r = m
 				} else {
 					l = m
 				}
-			} else { //если точка не в хвосте - она однозначно правее
+			} else { //if the point is not in the tail - it is definitely to the right
 				r = m
 			}
-		} else { //искомый элемент в смещенной голове упорядоченного массива
-			if arr[m] < arr[len(arr)-1] { //если точка тоже в голове - проверяем левее она или правее
+		} else { //required element in the displaced head of an ordered array
+			if arr[m] < arr[len(arr)-1] { //if the point is also in the head - check it to the left or to the right
 				if arr[m] > item {
 					r = m
 				} else {
 					l = m
 				}
-			} else { //если точка не в голове - она однозначно левее
+			} else { //if the point is not in the head - it is definitely to the left
 				l = m
 			}
 		}
